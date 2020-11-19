@@ -19,7 +19,7 @@ Workflow Steps
 
 # Data
 
-The resulting [CSV file](https://raw.githubusercontent.com/denaliyinuo/cancer_rate_web_scraper_data_cleaning/main/csv/06_csv_cancer_rates/cancer_rates.csv) has over 100,000 data points, broken down by county, age group, gender, and ethnicity.  Below is a snapshot of the data 
+The resulting [CSV file](https://raw.githubusercontent.com/denaliyinuo/cancer_rate_web_scraper_data_cleaning/main/csv/06_csv_cancer_rates/cancer_rates.csv) has over 100,000 data points, broken down by county, age group, gender, and ethnicity.  Below is a snapshot of the data.
 
 ![image 4](/images/image4.png)
 

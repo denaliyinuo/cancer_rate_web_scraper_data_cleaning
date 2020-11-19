@@ -5,8 +5,6 @@ US cancer rates for different cancers broken down by county, age group, gender, 
 
 I created a web scraper to gather cancer incidence rates in the US for different cancers broken down by county, age group, gender, and ethnicity.  I further cleaned the data to remove null values and collate over 1000 files into a single csv file for analysis.
 
-![image 2](/images/image2.png)
-
 Workflow Steps
 
 
@@ -16,3 +14,7 @@ Workflow Steps
 4. XLSX files are cleaned using Openpyxl.
 5. XLSX files are converted back into CSVs.
 6. CSVs are merged into single CSV file.
+
+![image 2](/images/image2.png)
+
+

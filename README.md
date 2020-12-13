@@ -26,4 +26,6 @@ The resulting [CSV file](https://raw.githubusercontent.com/denaliyinuo/cancer_ra
 
 # Results
 
+High rates of melanoma appear to occur in states where alpine skiing is popular, such as Oregon, Idaho, California, Utah, Colorado, Vermont, and New Hampshire.  There is high incidence rates for individuals that spend inordinate amount of time enjoying the outdoors, but are particularly high for people that go skiing.  Since the high albedo for snow concentrates sunlight onto people's skin, it is believed that snow increases incidence rates for melanoma.  It is peculair that counties with some of the most popular ski resorts in the country also have high rates of melanoma, which can be seen in the map below.
+
 ![image 5](/images/image5.png)

@@ -1,11 +1,11 @@
 import csv
 import openpyxl
 
-for i in range(1, 15):
+for i in range(1, 2121):
 
-    FromPath = '/Users/nathanoliver/Desktop/Cancer Rates/version_02/csv/01_csv_original/incd-' + \
+    FromPath = '/Users/nathanoliver/Desktop/Cancer Rates/csv/01_csv_original/incd-' + \
         str(i) + '.csv'
-    ToPath = '/Users/nathanoliver/Desktop/Cancer Rates/version_02//xlsx/02_xlsx/incd-' + \
+    ToPath = '/Users/nathanoliver/Desktop/Cancer Rates//xlsx/02_xlsx/incd-' + \
         str(i) + '.xlsx'
 
     wb = openpyxl.Workbook()

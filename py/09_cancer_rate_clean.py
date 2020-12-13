@@ -7,8 +7,8 @@ def call_file(path):
     return pd.DataFrame(data)
 
 
-path1 = '/Users/nathanoliver/Desktop/Python/Cancer Rates/06_csv_cancer_rates/cancer_rates.csv'
-path2 = '/Users/nathanoliver/Desktop/Python/Cancer Rates/06_csv_cancer_rates/ctyfactbook2019.csv'
+path1 = '/Users/nathanoliver/Desktop/Cancer Rates/csv/06_csv_cancer_rates/cancer_rates.csv'
+path2 = '/Users/nathanoliver/Desktop/Cancer Rates/csv/06_csv_cancer_rates/ctyfactbook2019.csv'
 
 df_can = call_file(path1)
 df_air = call_file(path2)

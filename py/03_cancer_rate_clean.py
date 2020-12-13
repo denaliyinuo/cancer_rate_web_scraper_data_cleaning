@@ -2,7 +2,7 @@ from openpyxl import load_workbook
 import pandas as pd
 import numpy as np
 
-for i in range(951, 1009):
+for i in range(1, 2121):
     print(i)
     path2 = '/Users/nathanoliver/Desktop/Cancer Rates/xlsx/03_xlsx_modified/incd-' + \
         str(i) + '-modified.xlsx'
@@ -26,6 +26,7 @@ for i in range(951, 1009):
     sheet.cell(row=1, column=8).value = 'lower_95%'
     sheet.cell(row=1, column=9).value = 'upper_95%'
     sheet.cell(row=1, column=10).value = 'average_annual_count'
+    sheet.cell(row=1, column=11).value = 'fips'
 
     cancer = sheet_old.cell(row=3, column=1).value.strip()
     race = sheet_old.cell(row=5, column=1).value.strip()
@@ -61,9 +62,11 @@ for i in range(951, 1009):
                     row=row - 8, column=1).value = 'District of Columbia'
                 sheet.cell(
                     row=row - 8, column=2).value = 'District of Columbia'
+                sheet.cell(row=row - 8, column=11).value = '11001'
             elif test_cell_backup == '72001':
                 sheet.cell(row=row - 8, column=1).value = 'Puerto Rico'
                 sheet.cell(row=row - 8, column=2).value = 'Puerto Rico'
+                sheet.cell(row=row - 8, column=11).value = '72001'
 
             # incidence_rate
             sheet.cell(
@@ -81,6 +84,10 @@ for i in range(951, 1009):
 
             sheet.cell(
                 row=row - 8, column=1).value = sheet_old.cell(row=row, column=1).value.strip()
+
+            sheet.cell(
+                row=row - 8, column=11).value = sheet_old.cell(row=row, column=3).value.strip()
+
             # print(sheet.cell(row=row - 8, column=1).value)
             # state
             sheet.cell(
@@ -107,6 +114,11 @@ for i in range(951, 1009):
                 # average_annual_count
                 sheet.cell(
                     row=row - 8, column=10).value = sheet_old.cell(row=row, column=8).value.strip()
+
+                # fips
+                sheet.cell(
+                    row=row - 8, column=11).value = sheet_old.cell(row=row, column=3).value.strip()
+
             elif (test_cell_backup != '11001'):
                 if test_cell_backup != '72001':
                     # print('Entered False1')
@@ -124,6 +136,11 @@ for i in range(951, 1009):
                     # average_annual_count
                     sheet.cell(
                         row=row - 8, column=10).value = sheet_old.cell(row=row, column=9).value.strip()
+
+                    # fips
+                    sheet.cell(
+                        row=row - 8, column=11).value = sheet_old.cell(row=row, column=4).value.strip()
+
         except TypeError:
             # print('Entered False2')
             # print()
@@ -139,8 +156,13 @@ for i in range(951, 1009):
             # average_annual_count
             sheet.cell(
                 row=row - 8, column=10).value = sheet_old.cell(row=row, column=9).value.strip()
+
+            # fips
+            sheet.cell(
+                row=row - 8, column=11).value = sheet_old.cell(row=row, column=4).value.strip()
+
         # set columns to blank cells
-        for delete in range(11, 14):
+        for delete in range(12, 14):
             sheet.cell(row=row - 8, column=delete).value = ''
 
     sheet.cell(row=2, column=1).value = 'US'

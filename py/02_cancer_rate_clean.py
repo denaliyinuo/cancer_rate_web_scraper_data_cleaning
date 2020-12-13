@@ -2,9 +2,10 @@ from openpyxl import load_workbook
 import pandas as pd
 import numpy as np
 
-for i in range(1, 1009):
+for i in range(1, 2121):
 
-    path1 = '/Users/nathanoliver/Desktop/Cancer Rates/xlsx/02_xlsx/incd-' + str(i) + '.xlsx'
+    path1 = '/Users/nathanoliver/Desktop/Cancer Rates/xlsx/02_xlsx/incd-' + \
+        str(i) + '.xlsx'
     path2 = '/Users/nathanoliver/Desktop/Cancer Rates/xlsx/03_xlsx_modified/incd-' + \
         str(i) + '-modified.xlsx'
 
@@ -24,6 +25,7 @@ for i in range(1, 1009):
     sheet.cell(row=1, column=8).value = 'lower_95%'
     sheet.cell(row=1, column=9).value = 'upper_95%'
     sheet.cell(row=1, column=10).value = 'average_annual_count'
+    sheet.cell(row=1, column=11).value = 'fips'
 
     exit_text = 'Created by'
 

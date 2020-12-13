@@ -86,6 +86,15 @@ for col in cat_col:
 df = replace('District of Columbia(6', 'District of Columbia')
 df = replace('8)', 'District of Columbia')
 
+df = replace(' <50', '<50')
+df = replace(' <65', '<65')
+df = replace(' 50+', '50+')
+df = replace(' 65+', '65+')
+
+
+['Ages <50' 'Ages 50+' 'Ages <65' 'Ages 65+' '<15' '<20']
+
+
 df = df.drop(columns='Unnamed: 0', axis='columns')
 
 print(df.columns)

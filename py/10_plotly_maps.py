@@ -11,13 +11,24 @@ def call_file(path):
 
 
 path1 = '/Users/nathanoliver/Desktop/Cancer Rates/csv/06_csv_cancer_rates/cancer_rates.csv'
+path2 = '/Users/nathanoliver/Desktop/Cancer Rates/csv/07_fips/fips.csv'
 
 df = call_file(path1)
+df5 = call_file(path2)
 
-print(df['cancer'].unique())
-print(df['race'].unique())
-print(df['sex'].unique())
-print(df['age'].unique())
+for i in range(len(df5)):
+    if df5.loc[i, 'fips'] < 10000:
+        df5.loc[i, 'fips'] = '0' + str(df5.loc[i, 'fips'])
+        print(df5.loc[i, 'fips'])
+    else:
+        pass
+        # df.loc[i, 'fips'] = str(df.loc[i, 'fips'])
+        # print(df.loc[i, 'fips'])
+
+# print(df['cancer'].unique())
+# print(df['race'].unique())
+# print(df['sex'].unique())
+# print(df['age'].unique())
 
 
 title = 'Melanoma Incidence Rates by US County, 2015-2019'
@@ -27,6 +38,28 @@ df1 = df[df['cancer'] == 'Melanoma of the Skin']
 df2 = df1[df1['race'] == 'All Races']
 df3 = df2[df2['sex'] == 'Both Sexes']
 df4 = df3[df3['age'] == 'All Ages']
+
+rate = df4['incidence_rate'].tolist()
+fips = df4['fips'].tolist()
+
+# low = 29.4
+# hgh = 848.8
+
+low = min(rate)
+hgh = max(rate)
+
+n = len(df4)
+
+for i in range(len(df5)):
+
+    val = df5.loc[i, 'fips']
+
+    if val not in df4['fips']:
+        new_row = {'county': 0, 'state': 0, 'cancer': 0, 'race': 0, 'sex': 0, 'age': 0,
+                   'incidence_rate': 0, 'lower_95%': 0, 'upper_95%': 0, 'average_annual_count': 0, 'fips': val}
+        df4 = df4.append(new_row, ignore_index=True)
+        # df4.loc[n]=0,0,0,0,0,0,0,0,0,0,val
+        print(val)
 
 scope = ['usa']
 
@@ -59,6 +92,10 @@ scope = ['usa']
 #               '#BFE1B0',
 #               '#DEEDCF']
 
+grey = '#A9A9A9'
+
+'#FCC9BF'
+
 colorscale = ['#540026',
               '#650023',
               '#76001D',
@@ -74,7 +111,7 @@ colorscale = ['#540026',
               '#F0874F',
               '#F59973',
               '#F9AF99',
-              '#FCC9BF']
+              grey]
 
 colorscale.reverse()
 
@@ -91,8 +128,8 @@ fips = df4['fips'].tolist()
 # low = 29.4
 # hgh = 848.8
 
-low = min(rate)
-hgh = max(rate)
+# low = min(rate)
+# hgh = max(rate)
 
 
 n = 1
@@ -124,8 +161,10 @@ fig = ff.create_choropleth(
     scope=scope,
     colorscale=colorscale,
     binning_endpoints=binning_endpoints,
-    title=title,
+    title_text=title,
     legend_title=legend_title,
+    round_legend_values=True,
+    county_outline={'color': 'rgb(255,255,255)', 'width': 0.5}
 )
 
 fig.show()
